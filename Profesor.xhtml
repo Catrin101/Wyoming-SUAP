@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      lang="es">
+
+<h:head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Consulta de Profesores</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #d3d3d3;
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #005f40;
+            height: 100vh;
+            position: fixed;
+            left: 0;
+            top: 0;
+            padding-top: 20px;
+            color: white;
+        }
+        .sidebar img {
+            display: block;
+            margin: 0 auto 20px;
+            width: 150px;
+            max-width: 100%;
+        }
+        .sidebar a {
+            display: block;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+        }
+        .sidebar a:hover, .sidebar a.active {
+            background-color: #ffc107;
+            color: black;
+        }
+        .content {
+            margin-left: 250px;
+            padding: 20px;
+            background-color: #f1f1f1;
+            min-height: 100vh;
+        }
+        .header {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+    </style>
+</h:head>
+
+<h:body>
+    <div class="sidebar">
+        <p:graphicImage url="resources/uabcl.png" class="logo" />
+        <p:menu>
+            <p:menuitem value="Menu Principal" url="Principal.xhtml" icon="pi pi-home"/>
+            <p:menuitem value="Profesores" url="Profesor.xhtml" icon="pi pi-user"/>
+            <p:menuitem value="Unidad de Aprendizaje" url="unidad_aprendizaje.xhtml" icon="pi pi-book"/>
+            <p:menuitem value="Asignación de unidades de aprendizaje" url="asignacion_unidades.xhtml" icon="pi pi-calendar"/>
+            <p:menuitem value="Cerrar Sesión" url="logout.xhtml" icon="pi pi-sign-out"/>
+        </p:menu>
+    </div>
+
+    <div class="content">
+        <h1 class="header">Consulta de Profesores</h1>
+        
+        <!-- Botón para agregar un nuevo profesor -->
+        <p:commandButton value="Agregar" icon="pi pi-plus" styleClass="btn-add" onclick="PF('dlgAgregar').show();" />
+
+        <!-- Tabla de profesores -->
+        <p:dataTable id="profesorTable" var="profesor" value="#{profesorBean.profesores}" styleClass="table-container" responsiveLayout="scroll">
+            <p:column headerText="ID">
+                <h:outputText value="#{profesor.id}" />
+            </p:column>
+            <p:column headerText="Nombre(s)">
+                <h:outputText value="#{profesor.nombre}" />
+            </p:column>
+            <p:column headerText="Apellidos">
+                <h:outputText value="#{profesor.apellidos}" />
+            </p:column>
+            <p:column headerText="RFC">
+                <h:outputText value="#{profesor.rfc}" />
+            </p:column>
+            <p:column headerText="Opciones">
+                <p:commandButton value="Editar" icon="pi pi-pencil" styleClass="btn-green" actionListener="#{profesorBean.editarProfesor(profesor.id)}" />
+                <p:commandButton value="Borrar" icon="pi pi-trash" styleClass="btn-red" actionListener="#{profesorBean.borrarProfesor(profesor.id)}" />
+            </p:column>
+        </p:dataTable>
+    </div>
+
+    <!-- Diálogo para agregar nuevo profesor -->
+    <p:dialog header="Agregar Profesor" widgetVar="dlgAgregar" modal="true" resizable="false" showEffect="fade" hideEffect="fade">
+        <!-- Aquí agregar el contenido del formulario para agregar un profesor -->
+        <h:form id="agregarProfesorForm">
+            <!-- Campos del formulario -->
+            <h:outputLabel for="nombre" value="Nombre:" />
+            <p:inputText id="nombre" value="#{profesorBean.nuevoProfesor.nombre}" />
+            <!-- Otros campos aquí -->
+            
+            <p:commandButton value="Guardar" icon="pi pi-check" actionListener="#{profesorBean.agregarProfesor}" oncomplete="PF('dlgAgregar').hide();" />
+        </h:form>
+    </p:dialog>
+</h:body>
+</html>
+
