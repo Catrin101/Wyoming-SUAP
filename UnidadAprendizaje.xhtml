@@ -1,15 +1,10 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:p="http://primefaces.org/ui"
-      xmlns:jsf="http://xmlns.jcp.org/jsf"
-      lang="es">
+      xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-    <meta charset="UTF-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Consulta de Profesores</title>
+    <title>Consulta de Unidades de Aprendizaje</title>
     <style>
         body {
             margin: 0;
@@ -48,14 +43,18 @@
             background-color: #f1f1f1;
             min-height: 100vh;
         }
-        .button-green {
-            background-color: #28a745 !important;
-            color: white !important;
-        }
         .header {
             font-size: 24px;
             font-weight: bold;
             margin-bottom: 20px;
+        }
+        .button-green {
+            background-color: #28a745 !important;
+            color: white !important;
+        }
+        .button-red {
+            background-color: #dc3545 !important;
+            color: white !important;
         }
     </style>
 </h:head>
@@ -73,26 +72,29 @@
     </div>
 
     <div class="content">
-        <h1 class="header">Consulta de Profesores</h1>
-     
+        <h1 class="header">Consulta de Unidades de Aprendizaje</h1>
+        
         <p:commandButton value="Agregar" icon="pi pi-plus" styleClass="button-green" onclick="PF('dlgAgregar').show();" />
 
-        <p:dataTable id="profesorTable" var="profesor" value="#{profesorBean.profesores}" styleClass="table-container" responsiveLayout="scroll">
+        <p:dataTable id="unidadTable" var="unidad" value="#{unidadBean.unidades}" styleClass="table-container" responsiveLayout="scroll">
             <p:column headerText="ID">
-                <h:outputText value="#{profesor.id}" />
+                <h:outputText value="#{unidad.id}" />
             </p:column>
-            <p:column headerText="Nombre(s)">
-                <h:outputText value="#{profesor.nombre}" />
+            <p:column headerText="Nombre de unidad de aprendizaje">
+                <h:outputText value="#{unidad.nombre}" />
             </p:column>
-            <p:column headerText="Apellidos">
-                <h:outputText value="#{profesor.apellidos}" />
+            <p:column headerText="Hora de clase">
+                <h:outputText value="#{unidad.horaClase}" />
             </p:column>
-            <p:column headerText="RFC">
-                <h:outputText value="#{profesor.rfc}" />
+            <p:column headerText="Hora de Taller">
+                <h:outputText value="#{unidad.horaTaller}" />
+            </p:column>
+            <p:column headerText="Hora de Laboratorio">
+                <h:outputText value="#{unidad.horaLaboratorio}" />
             </p:column>
             <p:column headerText="Opciones">
-                <p:commandButton value="Editar" icon="pi pi-pencil" styleClass="btn-green" actionListener="#{profesorBean.editarProfesor(profesor.id)}" />
-                <p:commandButton value="Borrar" icon="pi pi-trash" styleClass="btn-red" actionListener="#{profesorBean.borrarProfesor(profesor.id)}" />
+                <p:commandButton value="Editar" icon="pi pi-pencil" styleClass="button-green" actionListener="#{unidadBean.editarUnidad(unidad.id)}" />
+                <p:commandButton value="Borrar" icon="pi pi-trash" styleClass="button-red" actionListener="#{unidadBean.borrarUnidad(unidad.id)}" />
             </p:column>
         </p:dataTable>
     </div>

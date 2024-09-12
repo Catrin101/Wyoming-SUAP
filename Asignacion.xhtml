@@ -1,21 +1,15 @@
-<?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:p="http://primefaces.org/ui"
-      xmlns:jsf="http://xmlns.jcp.org/jsf"
-      lang="es">
+      xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-    <meta charset="UTF-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Universidad Autónoma de Baja California</title>
+    <title>Asignación de Unidades de Aprendizaje</title>
     <style>
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background-color: #f2f2f2;
+            background-color: #d3d3d3;
         }
         .sidebar {
             width: 250px;
@@ -39,21 +33,20 @@
             padding: 10px 20px;
             text-decoration: none;
         }
-        .sidebar a:hover {
+        .sidebar a:hover, .sidebar a.active {
             background-color: #ffc107;
+            color: black;
         }
         .content {
             margin-left: 250px;
             padding: 20px;
+            background-color: #f1f1f1;
+            min-height: 100vh;
         }
         .header {
             font-size: 24px;
             font-weight: bold;
-            margin-bottom: 10px;
-        }
-        .subheader {
-            font-size: 18px;
-            color: #666;
+            margin-bottom: 20px;
         }
     </style>
 </h:head>
@@ -71,9 +64,23 @@
     </div>
 
     <div class="content">
-        <p:panel header="Universidad Autónoma de Baja California">
-            <h:outputText value="Sistema Universal de Autentificación de Perfiles" styleClass="subheader"/>
-        </p:panel>
+        <h1 class="header">Asignación de Unidades de Aprendizaje</h1>
+        
+        <!-- Tabla de asignación de unidades de aprendizaje -->
+        <p:dataTable id="asignacionTable" var="asignacion" value="#{asignacionBean.asignaciones}" styleClass="table-container" responsiveLayout="scroll">
+            <p:column headerText="ID de Unidad">
+                <h:outputText value="#{asignacion.idUnidad}" />
+            </p:column>
+            <p:column headerText="Nombre de unidad de aprendizaje">
+                <h:outputText value="#{asignacion.nombreUnidad}" />
+            </p:column>
+            <p:column headerText="ID de profesor">
+                <h:outputText value="#{asignacion.idProfesor}" />
+            </p:column>
+            <p:column headerText="Nombre de profesor">
+                <h:outputText value="#{asignacion.nombreProfesor}" />
+            </p:column>
+        </p:dataTable>
     </div>
 </h:body>
 </html>
