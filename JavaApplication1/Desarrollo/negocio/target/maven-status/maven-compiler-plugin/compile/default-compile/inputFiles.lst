@@ -1,6 +1,8 @@
-C:\Users\Usuario X\Documents\NetBeansProjects\JavaApplication1\Desarrollo\negocio\src\main\java\mx\desarrollo\integracion\ServiceFacadeLocator.java
-C:\Users\Usuario X\Documents\NetBeansProjects\JavaApplication1\Desarrollo\negocio\src\main\java\mx\desarrollo\facade\FacadeAlumno.java
-C:\Users\Usuario X\Documents\NetBeansProjects\JavaApplication1\Desarrollo\negocio\src\main\java\test\test.java
-C:\Users\Usuario X\Documents\NetBeansProjects\JavaApplication1\Desarrollo\negocio\src\main\java\mx\desarrollo\delegate\DelegateUsuario.java
-C:\Users\Usuario X\Documents\NetBeansProjects\JavaApplication1\Desarrollo\negocio\src\main\java\mx\desarrollo\delegate\DelegateAlumno.java
-C:\Users\Usuario X\Documents\NetBeansProjects\JavaApplication1\Desarrollo\negocio\src\main\java\mx\desarrollo\facade\FacadeUsuario.java
+C:\Users\eivet\OneDrive\Documentos\Wyoming-SUAP\Desarrollo\negocio\src\main\java\mx\desarrollo\facade\FacadeAdministrador.java
+C:\Users\eivet\OneDrive\Documentos\Wyoming-SUAP\Desarrollo\negocio\src\main\java\mx\desarrollo\delegate\DelegateAdministrador.java
+C:\Users\eivet\OneDrive\Documentos\Wyoming-SUAP\Desarrollo\negocio\src\main\java\mx\desarrollo\facade\FacadeProfesor.java
+C:\Users\eivet\OneDrive\Documentos\Wyoming-SUAP\Desarrollo\negocio\src\main\java\mx\desarrollo\integracion\ServiceFacadeLocator.java
+C:\Users\eivet\OneDrive\Documentos\Wyoming-SUAP\Desarrollo\negocio\src\main\java\test\test.java
+C:\Users\eivet\OneDrive\Documentos\Wyoming-SUAP\Desarrollo\negocio\src\main\java\mx\desarrollo\delegate\DelegateProfesor.java
+C:\Users\eivet\OneDrive\Documentos\Wyoming-SUAP\Desarrollo\negocio\src\main\java\mx\desarrollo\delegate\DelegateUnidadDeAprendizaje.java
+C:\Users\eivet\OneDrive\Documentos\Wyoming-SUAP\Desarrollo\negocio\src\main\java\mx\desarrollo\facade\FacadeUnidadDeAprendizaje.java
