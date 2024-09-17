@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+    <title>Altas de Unidades de Aprendizaje</title>
+    <style>
+        .form-container {
+            background-color: #f2f2f2;
+            padding: 20px;
+            border-radius: 10px;
+            width: 400px;
+            margin: 0 auto;
+        }
+        .label {
+            background-color: #4CAF50;
+            color: white;
+            padding: 5px;
+            margin-bottom: 5px;
+            display: inline-block;
+            width: 160px;
+        }
+        .input-field {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        .button {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px;
+            width: 100%;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .button-save {
+            background-color: #007BFF;
+        }
+        .button-save:hover {
+            background-color: #0056b3;
+        }
+        .button-cancel {
+            background-color: #FF0000;
+            color: white;
+            padding: 10px;
+            width: 100%;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        .button-cancel:hover {
+            background-color: #b30000;
+        }
+    </style>
+</h:head>
+
+<h:body>
+    <h:form>
+        <div class="form-container">
+            <h2>Altas de Unidades de Aprendizaje</h2>
+
+            <h:outputLabel value="ID:" styleClass="label" />
+            <p:inputText id="idUnidad" value="#{unidadAprendizajeBean.idUnidad}" styleClass="input-field"/>
+
+            <h:outputLabel value="Nombre de unidad:" styleClass="label" />
+            <p:inputText id="nombreUnidad" value="#{unidadAprendizajeBean.nombreUnidad}" styleClass="input-field"/>
+
+            <h:outputLabel value="Hora de clase:" styleClass="label" />
+            <p:inputText id="horaClase" value="#{unidadAprendizajeBean.horaClase}" styleClass="input-field"/>
+
+            <h:outputLabel value="Hora de Taller:" styleClass="label" />
+            <p:inputText id="horaTaller" value="#{unidadAprendizajeBean.horaTaller}" styleClass="input-field"/>
+
+            <h:outputLabel value="Hora de Laboratorio:" styleClass="label" />
+            <p:inputText id="horaLaboratorio" value="#{unidadAprendizajeBean.horaLaboratorio}" styleClass="input-field"/>
+
+            <p:commandButton value="Guardar" action="#{unidadAprendizajeBean.guardar}" styleClass="button button-save"/>
+            <p:link value="cancelar" outcome="UnidadAprendizaje.xhtml" styleClass="button-cancel" />
+        </div>
+    </h:form>
+</h:body>
+</html>
