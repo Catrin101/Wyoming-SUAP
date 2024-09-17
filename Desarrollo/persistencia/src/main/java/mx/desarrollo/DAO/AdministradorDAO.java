@@ -5,13 +5,9 @@
  */
 package mx.desarrollo.DAO;
 
-import mx.desarrollo.entidad.Usuario;
+import mx.desarrollo.entidad.Administrador;
 import mx.desarrollo.persistencia.AbstractDAO;
 
-/**
- *
- * @author total
- */
-public class UsuarioDAO extends AbstractDAO<Integer, Usuario>{
+public class AdministradorDAO extends AbstractDAO<Integer, Administrador> {
     
 }

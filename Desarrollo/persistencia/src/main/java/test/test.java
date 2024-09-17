@@ -7,8 +7,12 @@ package test;
 
 import java.util.ArrayList;
 import java.util.List;
-import mx.desarrollo.DAO.UsuarioDAO;
-import mx.desarrollo.entidad.Usuario;
+import mx.desarrollo.DAO.AdministradorDAO;
+import mx.desarrollo.DAO.UnidadDeAprendizajeDAO;
+import mx.desarrollo.DAO.ProfesorDAO;
+import mx.desarrollo.entidad.Administrador;
+import mx.desarrollo.entidad.UnidadDeAprendizaje;
+import mx.desarrollo.entidad.Profesor;
 
 /**
  *
@@ -16,12 +20,34 @@ import mx.desarrollo.entidad.Usuario;
  */
 public class test {
     public static void main(String[] args) {
-        List<Usuario> listaUsuarios = new ArrayList();
-        UsuarioDAO usuarioDao = new UsuarioDAO();
-        listaUsuarios = usuarioDao.findAll();
+        // Test para Administrador
+        List<Administrador> listaAdministradores = new ArrayList<>();
+        AdministradorDAO administradorDao = new AdministradorDAO();
+        listaAdministradores = administradorDao.findAll();
         
-        for(Usuario us : listaUsuarios){
-            System.out.println("Correo: " + us.getCorreo());
+        System.out.println("Listado de Administradores:");
+        for (Administrador admin : listaAdministradores) {
+            System.out.println("Nombre: " + admin.getNombreAdministrador());
+        }
+        
+        // Test para Unidad de Aprendizaje
+        List<UnidadDeAprendizaje> listaUnidades = new ArrayList<>();
+        UnidadDeAprendizajeDAO unidadDeAprendizajeDao = new UnidadDeAprendizajeDAO();
+        listaUnidades = unidadDeAprendizajeDao.findAll();
+        
+        System.out.println("\nListado de Unidades de Aprendizaje:");
+        for (UnidadDeAprendizaje ua : listaUnidades) {
+            System.out.println("Nombre: " + ua.getNombreDeLaUnidadAprendisaje());
+        }
+
+        // Test para Profesor
+        List<Profesor> listaProfesores = new ArrayList<>();
+        ProfesorDAO profesorDao = new ProfesorDAO();
+        listaProfesores = profesorDao.findAll();
+        
+        System.out.println("\nListado de Profesores:");
+        for (Profesor profesor : listaProfesores) {
+            System.out.println("Nombre: " + profesor.getNombre());
         }
     }
 }

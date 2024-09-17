@@ -1,9 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package mx.desarrollo.beanUI;
+package mx.desarrollo.UI;
 
 import java.io.IOException;
 import java.io.Serializable;
@@ -12,68 +7,55 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
-import mx.desarrollo.entidad.Usuario;
+import mx.desarrollo.entidad.Administrador; // Cambiado de Usuario a Administrador
 import mx.desarrollo.helper.LoginHelper;
 
-/**
- *
- * @author Kevin
- */
 @ManagedBean(name = "loginUI")
 @SessionScoped
-public class LoginBeanUI implements Serializable{
+public class LoginBeanUI implements Serializable {
     private LoginHelper loginHelper;
-    private Usuario usuario;
-    
+    private String adminNom; // nombre del Administrador
+    private String adminPassword; // Contraseña del Administrador
+
     public LoginBeanUI() {
         loginHelper = new LoginHelper();
     }
-    
-    /**
-     * Metodo postconstructor todo lo que este dentro de este metodo
-     * sera la primero que haga cuando cargue la pagina
-     */
+
     @PostConstruct
-    public void init(){
-        usuario= new Usuario();
+    public void init() {
+        // Inicializamos si es necesario
     }
 
-     public void login() throws IOException{
-        String appURL = "/index.xhtml";
-        // los atributos de usuario vienen del xhtml 
-        Usuario us= new Usuario();
-        us.setIdusuario(0);
-        us = loginHelper.Login(usuario.getCorreo(), usuario.getContrasena());
-          if(us != null && us.getIdusuario()!=null){
-            // asigno el usuario encontrado al usuario de esta clase para que 
-            // se muestre correctamente en la pagina de informacion
-            usuario=us;
+    public void login() throws IOException {
+        String appURL = "/principal.xhtml"; // Cambiado de /index.xhtml a /principal.xhtml
+        
+        // Inicia sesión solo con Administrador
+        Administrador admin = loginHelper.loginAdministrador(adminNom, adminPassword);
+        
+        if (admin != null) {
+            // Si el login es exitoso, redirigir al sistema
             FacesContext.getCurrentInstance().getExternalContext().redirect(FacesContext.getCurrentInstance().getExternalContext().getRequestContextPath() + appURL);
-        }else{
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Usuario o contraseña incorrecta:", "Intente de nuevo"));          
+        } else {
+            // Si falló, mostrar mensaje de error
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Usuario o contraseña incorrecta:", "Intente de nuevo"));
         }
     }
 
-    
-    /* getters y setters*/
+    /* Getters y Setters */
 
-    public Usuario getUsuario() {
-        return usuario;
+    public String getAdminNom() {
+        return adminNom;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public void setAdminNom(String adminNom) {
+        this.adminNom = adminNom;
     }
-    
-    
-    
-    
-    
-    
-    
-    
 
-    
+    public String getAdminPassword() {
+        return adminPassword;
+    }
 
-    
+    public void setAdminPassword(String adminPassword) {
+        this.adminPassword = adminPassword;
+    }
 }

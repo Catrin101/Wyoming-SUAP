@@ -27,7 +27,8 @@ jdbc:mysql://localhost:3306/desarrollo?zeroDateTimeBehavior=convertToNull
 
 <!-- Nota: Aqui deben ir todas las entidades que se formaron de su base de
 datos en este caso se crearon las siguiente -->
-<mapping class="mx.desarrollo.entidad.Alumno"/>
-<mapping class="mx.desarrollo.entidad.Usuario"/>
+<mapping class="mx.desarrollo.entidad.Administrador"/>
+<mapping class="mx.desarrollo.entidad.Profesor"/>
+<mapping class="mx.desarrollo.entidad.UnidadDeAprendizaje"/>
 </session-factory>
 </hibernate-configuration>
