@@ -1,0 +1,7 @@
+mx\wyoming\persistencia\AbstractDAO.class
+mx\wyoming\persistencia\HibernateUtil.class
+mx\wyoming\DAO\AdministradorDAO.class
+mx\wyoming\DAO\UnidadDeAprendizajeDAO.class
+mx\wyoming\persistencia\InterfaceDAO.class
+mx\wyoming\integracion\ServiceLocator.class
+mx\wyoming\DAO\ProfesorDAO.class

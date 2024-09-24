@@ -1,0 +1,7 @@
+mx\wyoming\negocio\facade\FacadeUnidadDeAprendizaje.class
+mx\wyoming\negocio\delegate\DelegateAdministrador.class
+mx\wyoming\negocio\facade\FacadeAdministrador.class
+mx\wyoming\negocio\facade\FacadeProfesor.class
+mx\wyoming\negocio\delegate\DelegateProfesor.class
+mx\wyoming\negocio\delegate\DelegateUnidadDeAprendizaje.class
+mx\wyoming\negocio\integracion\ServiceFacadeLocator.class
