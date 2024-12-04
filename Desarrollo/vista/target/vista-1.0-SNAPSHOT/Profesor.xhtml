@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      lang="es">
+
+<h:head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Consulta de Profesores</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #d3d3d3;
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #005f40;
+            height: 100vh;
+            position: fixed;
+            left: 0;
+            top: 0;
+            padding-top: 20px;
+            color: white;
+        }
+        .sidebar img {
+            display: block;
+            margin: 0 auto 20px;
+            width: 150px;
+            max-width: 100%;
+        }
+        .sidebar a {
+            display: block;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+        }
+        .sidebar a:hover, .sidebar a.active {
+            background-color: #ffc107;
+            color: black;
+        }
+        .content {
+            margin-left: 250px;
+            padding: 20px;
+            background-color: #f1f1f1;
+            min-height: 100vh;
+        }
+        .button-green {
+            background-color: #28a745 !important;
+            color: white !important;
+        }
+        .header {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+    </style>
+</h:head>
+
+<h:body>
+    <div class="sidebar">
+        <p:graphicImage url="resources/uabcl.png" class="logo" />
+        <p:menu>
+            <p:menuitem value="Menu Principal" url="Principal.xhtml" icon="pi pi-home"/>
+            <p:menuitem value="Profesores" url="Profesor.xhtml" icon="pi pi-user"/>
+            <p:menuitem value="Unidad de Aprendizaje" url="UnidadAprendizaje.xhtml" icon="pi pi-book"/>
+            <p:menuitem value="Asignación de unidades de aprendizaje" url="Asignacion.xhtml" icon="pi pi-calendar"/>
+            <p:menuitem value="Cerrar Sesión" url="login.xhtml" icon="pi pi-sign-out"/>
+        </p:menu>
+    </div>
+
+    <div class="content">
+        <h1 class="header">Consulta de Profesores</h1>
+     
+        <p:commandButton value="Agregar" icon="pi pi-plus" styleClass="button-green" onclick="PF('dlgAgregar').show();" />
+
+        <p:dataTable id="profesorTable" var="profesor" value="#{profesorBean.profesores}" styleClass="table-container" responsiveLayout="scroll">
+            <p:column headerText="ID">
+                <h:outputText value="#{profesor.id}" />
+            </p:column>
+            <p:column headerText="Nombre(s)">
+                <h:outputText value="#{profesor.nombre}" />
+            </p:column>
+            <p:column headerText="Apellidos">
+                <h:outputText value="#{profesor.apellidos}" />
+            </p:column>
+            <p:column headerText="RFC">
+                <h:outputText value="#{profesor.rfc}" />
+            </p:column>
+            <p:column headerText="Opciones">
+                <p:commandButton value="Editar" icon="pi pi-pencil" styleClass="btn-green" actionListener="#{profesorBean.editarProfesor(profesor.id)}" />
+                <p:commandButton value="Borrar" icon="pi pi-trash" styleClass="btn-red" actionListener="#{profesorBean.borrarProfesor(profesor.id)}" />
+            </p:column>
+        </p:dataTable>
+    </div>
+</h:body>
+</html>
